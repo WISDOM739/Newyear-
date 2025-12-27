@@ -3,47 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile Page</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Happy New Year from Wisdom 🎆</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0c2461, #1e3799, #4a69bd);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-20px, -20px) rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ffd32a, #ff9f1a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .year {
+            font-size: 8rem;
+            font-weight: 900;
+            margin: 20px 0;
+            background: linear-gradient(45deg, #ff9ff3, #f368e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .message {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin: 30px 0;
+            padding: 0 20px;
+            color: #e6e6e6;
+        }
+
+        .highlight {
+            color: #ffd32a;
+            font-weight: bold;
+        }
+
+        .emoji-row {
+            font-size: 3rem;
+            margin: 30px 0;
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .signature {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            color: #ffd32a;
+            font-style: italic;
+        }
+
+        .code-snippet {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 500px;
+            text-align: left;
+            border-left: 4px solid #ff9f1a;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+
+        .comment {
+            color: #74b9ff;
+        }
+
+        .whatsapp-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .whatsapp-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #dfe6e9;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+            gap: 16px;
+        }
+
+        .whatsapp-button i {
+            font-size: 1.4rem;
+        }
+
+        .footer-note {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .year {
+                font-size: 5rem;
+            }
+            
+            .message {
+                font-size: 1.2rem;
+            }
+            
+            .emoji-row {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .year {
+                font-size: 4rem;
+            }
+            
+            .whatsapp-button {
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="profile-container">
-        <header>
-            <h1>Developer's Profile</h1>
-            <p>Web Developer & Explorer</p>
-        </header>
-
-        <section class="details">
-            <h2>Interests</h2>
-            <ul>
-                <li>Coding</li>
-                <li>Hiking</li>
-                <li>Reading Sci-Fi</li>
-            </ul>
-
-            <h2>Statistics</h2>
-            <table>
-                <tr>
-                    <th>Projects</th>
-                    <th>Experience</th>
-                    <th>Coffee Consumed</th>
-                </tr>
-                <tr>
-                    <td>Web system</td>
-                    <td>5 Years</td>
-                    <td>Countless</td>
-                </tr>
-                <tr>
-                    <td>Mobile App</td>
-                    <td>3 Years</td>
-                    <td>Much</td>
-                </tr>
-            </table>
-        </section>
-
-        <button id="messageBtn">Click to greet</button>
+    <div class="container">
+        <h1>Happy New Year!</h1>
+        <div class="year">2025</div>
+        
+        <div class="emoji-row">🎉 🎊 ✨ 🥳 🎆</div>
+        
+        <div class="message">
+            Wishing you a year filled with <span class="highlight">success, joy, and exciting new opportunities</span>. May your journey be as smooth as well-written code and your achievements compile without errors!
+        </div>
+        
+        <div class="code-snippet">
+            <span class="comment">// Wisdom's New Year Wish:</span><br>
+            while (year == 2025) {<br>
+            &nbsp;&nbsp;happiness++;<br>
+            &nbsp;&nbsp;success.multiply();<br>
+            &nbsp;&nbsp;health.optimize();<br>
+            }
+        </div>
+        
+        <div class="signature">— Wisdom ✨</div>
+        
+        <div class="whatsapp-section">
+            <p class="whatsapp-text">
+                If you've seen this greeting, let me know with a quick message! 📱
+            </p>
+            <a href="https://wa.me/256751689696?text=Hey%20Wisdom!%20Just%20saw%20your%20awesome%20New%20Year%20greeting%20🎉%20Wishing%20you%20an%20amazing%202025!" 
+               class="whatsapp-button"
+               target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Notify on WhatsApp
+            </a>
+            <p class="footer-note">
+                Opens WhatsApp with a pre-written message (just hit send!)
+            </p>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Simple confetti effect on click
+        document.addEventListener('click', function(e) {
+            const colors = ['#ff9f1a', '#ffd32a', '#4a69bd', '#f368e0', '#25D366'];
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.width = '10px';
+            confetti.style.height = '10px';
+            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.borderRadius = '50%';
+            confetti.style.left = e.pageX + 'px';
+            confetti.style.top = e.pageY + 'px';
+            confetti.style.pointerEvents = 'none';
+            confetti.style.zIndex = '1000';
+            
+            document.body.appendChild(confetti);
+            
+            // Animate
+            const animation = confetti.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                { transform: `translateY(-${Math.random() * 100 + 50}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: 1000,
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+            });
+            
+            animation.onfinish = () => confetti.remove();
+        });
+
+        // Add a greeting in console
+        console.log('%c🎉 Happy New Year 2025! 🎉', 'color: #ffd32a; font-size: 18px; font-weight: bold;');
+        console.log('%cFrom Wisdom with ❤️', 'color: #74b9ff; font-size: 14px;');
+    </script>
 </body>
-</html>
+                                                                </html>
